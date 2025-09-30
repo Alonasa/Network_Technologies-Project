@@ -1,13 +1,15 @@
-#  API for Mobile App "My Habits"
+# API for Mobile App "My Habits"
 
 **My Habits** is a mobile **React-native** habit‑tracking application supported by a custom backend API.  
 The project demonstrates practical knowledge in **Networking Technologies** through the
-use of core **HTTP methods** (`GET`, `POST`, `PUT`, `DELETE`), and **Status codes** (`200`, `400`, `500`) for CRUD operations,
+use of core **HTTP methods** (`GET`, `POST`, `PUT`, `DELETE`), and **Status codes** (`200`, `400`, `500`) for CRUD
+operations,
 combined with principles of **Database Design and Development**.
 
 ---
 
 ## Objectives
+
 - Showcase implementation of a **RESTful API**.
 - Apply **3rd Normal Form (3NF)** database design for efficient data storage.
 - Secure **user authentication** with password encryption.
@@ -19,22 +21,25 @@ combined with principles of **Database Design and Development**.
 ---
 
 ### API
+
 - Built with **Express.js**.
 - Uses **SQL database** for persistence.
 - Communicates via **JSON**.
 - Implements the classical CRUD operations:
-    - `POST /habits` → Create new habit
-    - `GET /habits` → Read habits list
-    - `PUT /habits/:id` → Update habit
-    - `DELETE /habits/:id` → Delete habit
+    - `POST /habits-lists` → Create a new habit list
+    - `GET /habits-lists` → Read habits list
+    - `PUT /habits-lists/:id` → Update habits list
+    - `DELETE /habits-lists/:id` → Delete habits list
 
 ### Security
+
 - Passwords stored securely with **hashing**.
 - Each user can access only their own data.
 
 ---
 
 ## Technologies
+
 - **Git** – Version control
 - **Node.js** (runtime environment)
 - **JavaScript** – Backend logic
@@ -48,6 +53,7 @@ combined with principles of **Database Design and Development**.
 ---
 
 ## Workflow
+
 1**Develop REST API** → implemented with Express.js.
 2**Mobile Integration** → mobile client communicates with API using HTTP + JSON.
 
@@ -55,16 +61,18 @@ combined with principles of **Database Design and Development**.
 
 ## API Endpoints
 
-| Method     | Endpoint               | Description                  | Request Body (JSON) Example                |
-|------------|------------------------|------------------------------|--------------------------------------------|
-| **POST**   | `/users/register`      | Register a new user          | `{ "username": "john", "email": "j@mail.com", "password": "secret123" }` |
-| **POST**   | `/users/login`         | Authenticate & return token  | `{ "email": "j@mail.com", "password": "secret123" }` |
-| **GET**    | `/habits`              | Get all habits for user      | –                                          |
-| **POST**   | `/habits`              | Create a new habit           | `{ "name": "Drink Water", "frequency": "daily", "goal_value": 1 }` |
-| **PUT**    | `/habits/:id`          | Update an existing habit     | `{ "name": "Read Books", "frequency": "daily", "goal_value": 2 }` |
-| **DELETE** | `/habits/:id`          | Delete a habit               | –                                          |
-| **GET**    | `/habits/:id/logs`     | Get all logs for a habit     | –                                          |
-| **POST**   | `/habits/:id/logs`     | Add a log entry (mark done)  | `{ "log_date": "2025-09-29", "count": 1 }` |
+| Method     | Endpoint                      | Description                           | Request Body (JSON) Example                                                                                                                            |
+|------------|-------------------------------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **POST**   | `/users/register`             | Register a new user                   | `{ "name": "john", "email": "j@mail.com", "password": "secret123" }`                                                                                   |
+| **POST**   | `/users/login`                | Authenticate & return token           | `{ "email": "j@mail.com", "password": "secret123", "remember_me": true }`                                                                              |
+| **GET**    | `/habits-list`                | Get all habits lists for user         | –                                                                                                                                                      |
+| **POST**   | `/habits-list`                | Create a new habit list               | `{ "user_id": 1, "status_id": 1, "priority_id": 1, "title": "Studying every day", "creation_date": "2025-09-29"}`                                      |
+| **PUT**    | `/habits-list/:id`            | Update an existing habit list         | `{ "user_id": 1, "status_id": 1, "priority_id": 2, "title": "Finish semester", "creation_date": "2025-09-29" }`                                        |
+| **DELETE** | `/habits-list/:id`            | Delete a habit list                   | `{ "list_id": 2 }`                                                                                                                                     |
+| **GET**    | `/habits-list/:id/habits`     | Get all habits portion for habit-list | `{ "list_id": 2, count: 5, page: 2}`                                                                                                                   |
+| **POST**   | `/habits-list/:id/habits`     | Create new habit in current list      | `{ "list_id": 1, "title": "Network Tecnologies", "description": "Make the end project", "creation_date": "2025-09-29", "deadline_date": "2025-12-25"}` |
+| **PUT**    | `/habits-list/:id/habits/:id` | Update certain habit in certain list  | `{ "list_id": 1, "title": "Network Tecnologies", "description": "Make the end project", "creation_date": "2025-09-29", "deadline_date": "2025-12-25"}` |
+| **DELETE** | `/habits-list/:id/habits/:id` | Delete certain habit in certain list  | `{ "list_id": 1, "habit_id": 1}`                                                                                                                       |
 
 ---
 
@@ -75,16 +83,17 @@ This backend was initialized using the official Express generator.
 Steps I used to bootstrap the project:
 
 1) Scaffold the app using the generator with EJS views
-   - npx express-generator --view=ejs
-   - (Alternative if installed globally): npx express-generator --view=ejs .
+    - npx express-generator --view=ejs
+    - (Alternative if installed globally): npx express-generator --view=ejs .
 
 2) Install dependencies
-   - npm install
+    - npm install
 
 3) Run the development server
-   - npm start
+    - npm start
 
 The generator created the basic structure you see now:
+
 - app.js, routes/, views/, public/
 
 From there, I added routes and logic for the My Habits API,

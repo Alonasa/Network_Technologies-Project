@@ -18,13 +18,6 @@ combined with principles of **Database Design and Development**.
 
 ---
 
-## System Design
-
-### Database
-- Designed using **Crow’s Foot ERD notation**.
-- Normalized to **3NF** to avoid redundancy.
-- SQL `CREATE TABLE` queries are documented in **DB_TABLES.md**.
-
 ### API
 - Built with **Express.js**.
 - Uses **SQL database** for persistence.
@@ -41,7 +34,7 @@ combined with principles of **Database Design and Development**.
 
 ---
 
-## ⚙️ Technologies
+## Technologies
 - **Git** – Version control
 - **Node.js** (runtime environment)
 - **JavaScript** – Backend logic
@@ -54,18 +47,16 @@ combined with principles of **Database Design and Development**.
 
 ---
 
-## 📊 Workflow
-1. **Design ERD & Schema** → normalized to 3NF.
-2. **Create SQL Tables** → see `DB_TABLES.md`.
-3. **Develop REST API** → implemented with Express.js.
-4. **Mobile Integration** → mobile client communicates with API using HTTP + JSON.
+## Workflow
+1**Develop REST API** → implemented with Express.js.
+2**Mobile Integration** → mobile client communicates with API using HTTP + JSON.
 
 ---
 
-## 🔗 API Endpoints
+## API Endpoints
 
-| Method | Endpoint              | Description                  | Request Body (JSON) Example                |
-|--------|-----------------------|------------------------------|--------------------------------------------|
+| Method     | Endpoint               | Description                  | Request Body (JSON) Example                |
+|------------|------------------------|------------------------------|--------------------------------------------|
 | **POST**   | `/users/register`      | Register a new user          | `{ "username": "john", "email": "j@mail.com", "password": "secret123" }` |
 | **POST**   | `/users/login`         | Authenticate & return token  | `{ "email": "j@mail.com", "password": "secret123" }` |
 | **GET**    | `/habits`              | Get all habits for user      | –                                          |
@@ -77,5 +68,24 @@ combined with principles of **Database Design and Development**.
 
 ---
 
-## 🚀 Elevator Pitch
-**My Habits** is a mobile app with a REST API built in Express.js and SQL. It demonstrates CRUD operations over HTTP, secure user authentication, and normalized database design — reflecting real‑world application architecture.
+## How I started the Express project
+
+This backend was initialized using the official Express generator.
+
+Steps I used to bootstrap the project:
+
+1) Scaffold the app using the generator with EJS views
+   - npx express-generator --view=ejs
+   - (Alternative if installed globally): npx express-generator --view=ejs .
+
+2) Install dependencies
+   - npm install
+
+3) Run the development server
+   - npm start
+
+The generator created the basic structure you see now:
+- app.js, routes/, views/, public/
+
+From there, I added routes and logic for the My Habits API,
+based on the endpoints ***habits*** and ***users*** which I defined at the top of this README

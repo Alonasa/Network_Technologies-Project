@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../db/');
 
-/* GET home page. */
+/* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+    res.json('respond with a resource');
 });
 
 module.exports = router;

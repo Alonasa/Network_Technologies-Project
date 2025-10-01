@@ -14,9 +14,9 @@ combined with principles of **Database Design and Development**.
 - Apply **3rd Normal Form (3NF)** database design for efficient data storage.
 - Secure **user authentication** with password encryption.
 - Provide features to:
-    - Create and manage personal habits.
-    - Record daily progress.
-    - Track history and habit streaks.
+  - Create and manage personal habits.
+  - Record daily progress.
+  - Track history and habit streaks.
 
 ---
 
@@ -26,10 +26,10 @@ combined with principles of **Database Design and Development**.
 - Uses **SQL database** for persistence.
 - Communicates via **JSON**.
 - Implements the classical CRUD operations:
-    - `POST /habits-lists` → Create a new habit list
-    - `GET /habits-lists` → Read habits list
-    - `PUT /habits-lists/:id` → Update habits list
-    - `DELETE /habits-lists/:id` → Delete habits list
+  - `POST /habits-lists` → Create a new habit list
+  - `GET /habits-lists` → Read habits list
+  - `PUT /habits-lists/:id` → Update habits list
+  - `DELETE /habits-lists/:id` → Delete habits list
 
 ### Security
 
@@ -62,7 +62,7 @@ combined with principles of **Database Design and Development**.
 ## API Endpoints
 
 | Method     | Endpoint                      | Description                           | Request Body (JSON) Example                                                                                                                            |
-|------------|-------------------------------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---------- | ----------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **POST**   | `/users/register`             | Register a new user                   | `{ "name": "john", "email": "j@mail.com", "password": "secret123" }`                                                                                   |
 | **POST**   | `/users/login`                | Authenticate & return token           | `{ "email": "j@mail.com", "password": "secret123", "remember_me": true }`                                                                              |
 | **GET**    | `/habits-list`                | Get all habits lists for user         | –                                                                                                                                                      |
@@ -82,19 +82,19 @@ This backend was initialized using the official Express generator.
 
 Steps I used to bootstrap the project:
 
-1) Scaffold the app using the generator with EJS views
-    - npx express-generator --view=ejs
-    - (Alternative if installed globally): npx express-generator --view=ejs .
+1. Scaffold the app using the generator with EJS views
+   - npx express-generator --view=ejs
+   - (Alternative if installed globally): npx express-generator --view=ejs .
 
-2) Install dependencies
-    - npm install
+2. Install dependencies
+   - npm install
 
-3) Run the development server
-    - npm start
+3. Run the development server
+   - npm start
 
 The generator created the basic structure you see now:
 
 - app.js, routes/, views/, public/
 
 From there, I added routes and logic for the My Habits API,
-based on the endpoints ***habits*** and ***users*** which I defined at the top of this README
+based on the endpoints **_habits_** and **_users_** which I defined at the top of this README

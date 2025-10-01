@@ -1,3 +1,3 @@
 exports.getHabits = (req, res) => {
-    res.json('respond with a resource')
-}
+  res.json("respond with a resource");
+};
